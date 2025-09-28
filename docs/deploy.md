@@ -1,3 +1,5 @@
+
+```
 # Автоматический деплой проекта nikitina-ortoped на Vercel из GitHub
 
 ## Подключение репозитория к Vercel
@@ -24,18 +26,42 @@
 
 ## Команды для работы с Git и пуша кода
 
-Инициализация Git репозитория, если это необходимо
+Инициализация Git репозитория, если это необходимо:
 
+```bash
 git init
-Добавление удаленного репозитория (замените URL на ваш)
+```
 
+Добавление удаленного репозитория (замените URL на ваш):
+
+```bash
 git remote add origin https://github.com/vpcea2s1r/nikitina-ortoped.git
-Добавление изменений в индекс
+```
 
+Добавление изменений в индекс:
+
+```bash
 git add .
-Создание коммита с сообщением
+```
 
+Создание коммита с сообщением:
+
+```bash
 git commit -m "Обновление проекта для деплоя"
-Отправка изменений в ветку main
+```
 
+Отправка изменений в ветку main:
+
+```bash
 git push origin main
+```
+
+## Полезные ссылки
+
+- Документация Vercel: https://vercel.com/docs
+- Руководство по GitHub: https://docs.github.com/en/get-started/quickstart
+- Управление переменными окружения на Vercel: https://vercel.com/docs/concepts/projects/environment-variables
+
+***
+```
+
