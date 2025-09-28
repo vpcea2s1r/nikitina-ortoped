@@ -3,10 +3,7 @@ export default function Home() {
     <main
       className="relative min-h-screen flex flex-col items-center justify-center p-6 font-sans bg-gradient-to-br from-blue-100 via-blue-50 to-white"
     >
-      {/* Полупрозрачный белый оверлей для читаемости */}
       <div className="absolute inset-0 bg-white/70"></div>
-
-      {/* Контент поверх оверлея */}
       <div className="relative z-10 text-center max-w-xl">
         <h1 className="text-5xl font-extrabold mb-6 text-blue-700">
           Стоматолог - ортопед Никитина Марина Георгиевна
