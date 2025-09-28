@@ -24,7 +24,6 @@
 
 ## Команды для работы с Git и пуша кода
 
-
 Инициализация Git репозитория, если это необходимо
 
 git init
@@ -40,13 +39,3 @@ git commit -m "Обновление проекта для деплоя"
 Отправка изменений в ветку main
 
 git push origin main
-
-text
-
-## Полезные ссылки
-
-- Документация Vercel: https://vercel.com/docs
-- Руководство по GitHub: https://docs.github.com/en/get-started/quickstart
-- Управление переменными окружения на Vercel: https://vercel.com/docs/concepts/projects/environment-variables
-
----
