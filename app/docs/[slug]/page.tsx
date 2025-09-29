@@ -3,7 +3,7 @@ import { remark } from 'remark';
 import html from 'remark-html';
 
 interface Props {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {
@@ -12,8 +12,10 @@ export async function generateStaticParams() {
 }
 
 export default async function DocPage({ params }: Props) {
-  const { slug } = params;
+  const resolvedParams = await params;
+  const { slug } = resolvedParams;
   const doc = getDocBySlug(slug);
+
   const processedContent = await remark().use(html).process(doc.content);
   const contentHtml = processedContent.toString();
 
