@@ -4,6 +4,39 @@ import React, { useState } from "react";
 
 const CLINIC_ADDRESS = "Нижний Новгород, ул. Октябрьской Революции, д. 43, оф. 316";
 
+const jsonLdData = {
+  "@context": "https://schema.org",
+  "@type": "MedicalOrganization",
+  "name": "Стоматолог - ортопед Никитина Марина Георгиевна",
+  "url": "https://ortopednn.ru",
+  "logo": "https://ortopednn.ru/logo.png",
+  "telephone": "+7 920 253 73 17",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "ул. Октябрьской Революции, д. 43, оф. 316",
+    "addressLocality": "Нижний Новгород",
+    "addressRegion": "Нижегородская область",
+    "postalCode": "603000",
+    "addressCountry": "RU"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    }
+  ],
+  "member": {
+    "@type": "Person",
+    "name": "Никитина Марина Георгиевна",
+    "jobTitle": "Стоматолог-ортопед",
+    "image": "https://ortopednn.ru/doctor-photo.jpg",
+    "telephone": "+7 920 253 73 17",
+    "url": "https://ortopednn.ru"
+  }
+};
+
 function DirectionsButton() {
   const [loading, setLoading] = useState(false);
 
@@ -44,6 +77,11 @@ function DirectionsButton() {
 export default function Home() {
   return (
     <main className="relative min-h-screen flex flex-col items-center justify-center p-6 font-sans bg-gradient-to-br from-blue-100 via-blue-50 to-white">
+      {/* Внедрение микроразметки JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
+      />
       <div className="absolute inset-0 bg-white/70"></div>
       <div className="relative z-10 text-center max-w-xl">
         <h1 className="text-5xl font-extrabold mb-6 text-blue-700">
