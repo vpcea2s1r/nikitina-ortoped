@@ -76,7 +76,11 @@ function Navigation() {
           <a
             href="#about"
             className="text-blue-700 hover:underline focus:outline focus:outline-3 focus:outline-blue-500"
+<<<<<<< HEAD
             tabIndex="0"
+=======
+            tabIndex={0}
+>>>>>>> develop
           >
             О враче
           </a>
@@ -85,7 +89,11 @@ function Navigation() {
           <a
             href="#services"
             className="text-blue-700 hover:underline focus:outline focus:outline-3 focus:outline-blue-500"
+<<<<<<< HEAD
             tabIndex="0"
+=======
+            tabIndex={0}
+>>>>>>> develop
           >
             Услуги
           </a>
@@ -94,7 +102,11 @@ function Navigation() {
           <a
             href="#contacts"
             className="text-blue-700 hover:underline focus:outline focus:outline-3 focus:outline-blue-500"
+<<<<<<< HEAD
             tabIndex="0"
+=======
+            tabIndex={0}
+>>>>>>> develop
           >
             Контакты
           </a>
