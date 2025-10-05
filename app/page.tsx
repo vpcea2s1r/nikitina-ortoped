@@ -1,5 +1,6 @@
 "use client";
 
+import ProstheticSteps from '../components/ProstheticSteps';
 import React, { useState } from "react";
 
 const CLINIC_ADDRESS = "Нижний Новгород, ул. Октябрьской Революции, д. 43, оф. 316";
@@ -112,13 +113,16 @@ export default function Home() {
     >
       <div className="absolute inset-0 bg-white/70"></div>
       <div className="relative z-10 text-center max-w-xl">
+
         <Navigation />
+
         <h1 className="text-5xl font-extrabold mb-6 text-blue-700" id="about">
           Стоматолог - ортопед Никитина Марина Георгиевна
         </h1>
         <p className="text-xl mb-10 text-gray-700">
           Профессиональное протезирование зубов — восстановление эстетики и функций улыбки в Нижнем Новгороде.
         </p>
+
         <section
           id="services"
           className="bg-blue-50 rounded-md p-6 shadow-md mb-12"
@@ -134,6 +138,10 @@ export default function Home() {
             Современное протезирование зубов любой сложности
           </p>
         </section>
+
+        {/* Вставляем анимацию этапов протезирования */}
+        <ProstheticSteps />
+
         <div
           id="contacts"
           className="flex justify-center"
