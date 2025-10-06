@@ -1,7 +1,7 @@
 "use client";
 
-
 import React, { useState } from "react";
+import SymptomCalculator from "../components/SymptomCalculator"; // Проверьте путь импорта
 
 const CLINIC_ADDRESS = "Нижний Новгород, ул. Октябрьской Революции, д. 43, оф. 316";
 
@@ -139,12 +139,14 @@ export default function Home() {
           </p>
         </section>
 
+        {/* Встраиваем калькулятор симптомов здесь */}
+        <SymptomCalculator />
+
         {/* Вставляем анимацию этапов протезирования */}
-        
 
         <div
           id="contacts"
-          className="flex justify-center"
+          className="flex justify-center mt-12"
           aria-label="Контактные данные"
         >
           <a
