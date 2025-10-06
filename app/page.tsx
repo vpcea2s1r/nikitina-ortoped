@@ -1,6 +1,6 @@
 "use client";
 
-import ProstheticSteps from '../components/ProstheticSteps';
+
 import React, { useState } from "react";
 
 const CLINIC_ADDRESS = "Нижний Новгород, ул. Октябрьской Революции, д. 43, оф. 316";
@@ -140,7 +140,7 @@ export default function Home() {
         </section>
 
         {/* Вставляем анимацию этапов протезирования */}
-        <ProstheticSteps />
+        
 
         <div
           id="contacts"
