@@ -1,16 +1,24 @@
 "use client";
 import { useState } from "react";
 
-const symptomsList = [
-  "Боль в зубе",
-  "Чувствительность к холодному/горячему",
-  "Кровоточивость дёсен",
-  "Опухоль или отёк",
-  "Неприятный запах изо рта",
-  "Зуб расшатался",
-  "Появились пятна на зубах",
-  "Чувство давления или распирания",
-];
+const symptomCategories: { [category: string]: string[] } = {
+  "Боли": [
+    "Боль в зубе",
+    "Чувство давления или распирания",
+  ],
+  "Воспаления": [
+    "Кровоточивость дёсен",
+    "Опухоль или отёк",
+  ],
+  "Эстетика": [
+    "Появились пятна на зубах",
+    "Неприятный запах изо рта",
+  ],
+  "Другие": [
+    "Чувствительность к холодному/горячему",
+    "Зуб расшатался",
+  ],
+};
 
 const diagnosisMap: { [key: string]: string[] } = {
   "Боль в зубе": ["Кариес", "Пульпит", "Перелом зуба"],
@@ -49,27 +57,33 @@ export default function SymptomCalculator() {
       <p className="mb-6 text-gray-700">
         Выберите симптомы, которые вы испытываете, чтобы получить рекомендации.
       </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
-        {symptomsList.map((symptom) => (
-          <label
-            key={symptom}
-            className={`cursor-pointer select-none rounded-md border px-3 py-2 flex items-center gap-3 transition ${
-              selected.includes(symptom)
-                ? "bg-blue-600 text-white border-blue-600"
-                : "bg-white border-gray-300 hover:border-blue-400"
-            }`}
-          >
-            <input
-              type="checkbox"
-              checked={selected.includes(symptom)}
-              onChange={() => toggleSymptom(symptom)}
-              className="hidden"
-              aria-label={symptom}
-            />
-            <span>{symptom}</span>
-          </label>
-        ))}
-      </div>
+
+      {Object.entries(symptomCategories).map(([category, symptoms]) => (
+        <div key={category} className="mb-6">
+          <h3 className="text-xl font-semibold text-blue-600 mb-3">{category}</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {symptoms.map((symptom) => (
+              <label
+                key={symptom}
+                className={`cursor-pointer select-none rounded-md border px-3 py-2 flex items-center gap-3 transition ${
+                  selected.includes(symptom)
+                    ? "bg-blue-600 text-white border-blue-600"
+                    : "bg-white border-gray-300 hover:border-blue-400"
+                }`}
+              >
+                <input
+                  type="checkbox"
+                  checked={selected.includes(symptom)}
+                  onChange={() => toggleSymptom(symptom)}
+                  className="hidden"
+                  aria-label={symptom}
+                />
+                <span>{symptom}</span>
+              </label>
+            ))}
+          </div>
+        </div>
+      ))}
 
       <div>
         <h3 className="text-xl font-semibold text-blue-700 mb-2">
