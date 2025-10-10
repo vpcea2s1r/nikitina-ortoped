@@ -71,4 +71,4 @@ function DirectionsButton() {
 
 function Navigation() {
   return (
-    <nav role="navigation" aria-label="Основное меню"
+    <nav role="navigation" aria-label="Основное меню сайта" className="mb-6">
