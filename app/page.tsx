@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState } from "react";
 import SymptomCalculator from "../components/SymptomCalculator"; // Проверьте путь импорта
 
@@ -139,11 +138,10 @@ export default function Home() {
           </p>
         </section>
 
-        {/* Встраиваем калькулятор симптомов здесь */}
+        {/* Современный калькулятор симптомов */}
         <SymptomCalculator />
 
-        {/* Вставляем анимацию этапов протезирования */}
-
+        {/* Контакты */}
         <div
           id="contacts"
           className="flex justify-center mt-12"

@@ -2,7 +2,7 @@
 import './globals.css'; // Импорт глобальных стилей Tailwind
 
 export const metadata = {
-  title: 'nikitina-ortoped',
+  title: 'Никитина М.Г. стоматолог - ортопед',
   description: 'Стоматолог - ортопед Никитина Марина Георгиевна',
 };
 
