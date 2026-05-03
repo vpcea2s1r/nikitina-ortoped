@@ -1,25 +1,37 @@
-/* Чистый CSS без Tailwind */
+/* Светло-голубая цветовая схема */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #FDF8F3; color: #2A2A2A; line-height: 1.6; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #F0F8FF; color: #1E3A5F; line-height: 1.6; }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
 section { padding: 4rem 0; }
 h1, h2, h3 { font-weight: 600; line-height: 1.2; }
 a { text-decoration: none; color: inherit; }
 .btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.75rem 1.5rem; border-radius: 9999px; font-weight: 600; cursor: pointer; transition: all 0.3s; border: none; }
-.btn-primary { background: #E8846B; color: white; }
-.btn-primary:hover { background: #D46F52; }
-.btn-secondary { border: 2px solid #2D6A6E; color: #2D6A6E; background: transparent; }
-.btn-secondary:hover { background: #2D6A6E; color: white; }
-.card { background: white; border-radius: 1.5rem; padding: 1.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
-.hero { min-height: 70vh; display: flex; align-items: center; justify-content: center; text-align: center; }
-.hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
-.hero p { font-size: 1.25rem; color: #2D6A6E; margin-bottom: 2rem; }
+.btn-primary { background: linear-gradient(135deg, #4A90D9 0%, #2E6AB3 100%); color: white; box-shadow: 0 4px 15px rgba(74, 144, 217, 0.3); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(74, 144, 217, 0.4); }
+.btn-secondary { border: 2px solid #2E6AB3; color: #2E6AB3; background: transparent; }
+.btn-secondary:hover { background: #2E6AB3; color: white; }
+.card { background: white; border-radius: 1.5rem; padding: 1.5rem; box-shadow: 0 4px 20px rgba(30, 58, 95, 0.08); }
+.hero { min-height: 70vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(180deg, #E8F4FD 0%, #F0F8FF 100%); }
+.hero h1 { font-size: 2.5rem; color: #1E3A5F; margin-bottom: 1rem; }
+.hero p { font-size: 1.25rem; color: #4A90D9; font-weight: 500; margin-bottom: 2rem; }
+.hero .subtitle { color: #5A7A9A; max-width: 500px; margin: 0 auto 2rem; }
 .services { background: white; }
-.services h2 { text-align: center; margin-bottom: 3rem; font-size: 2rem; }
+.services h2 { text-align: center; margin-bottom: 3rem; font-size: 2rem; color: #1E3A5F; }
 .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto; }
-.contacts { background: linear-gradient(to bottom, white, #FDF8F3); text-align: center; }
-.contacts h2 { font-size: 2rem; margin-bottom: 1rem; }
-.contacts p { color: #6B5B55; margin-bottom: 2rem; }
-footer { background: #5A4A41; color: rgba(255,255,255,0.7); text-align: center; padding: 2rem 0; }
-.grid-2 { display: grid; grid-template-columns: 1fr; gap: 2rem; }
-@media (min-width: 768px) { .grid-2 { grid-template-columns: 1fr 1fr; } .hero h1 { font-size: 3rem; } }
+.services .card h3 { color: #2E6AB3; margin-bottom: 0.5rem; }
+.services .card p { color: #5A7A9A; }
+.contacts { background: linear-gradient(to bottom, white, #E8F4FD); text-align: center; }
+.contacts h2 { font-size: 2rem; color: #1E3A5F; margin-bottom: 1rem; }
+.contacts p { color: #5A7A9A; margin-bottom: 2rem; }
+.price-section { background: white; }
+.price-section h2 { text-align: center; margin-bottom: 2rem; font-size: 2rem; color: #1E3A5F; }
+.price-category { margin-bottom: 2rem; }
+.price-category h3 { font-size: 1.125rem; color: #4A90D9; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #4A90D9; }
+.price-table { width: 100%; }
+.price-table tr { border-bottom: 1px solid #E0EBF5; }
+.price-table td { padding: 0.75rem 0; }
+.price-table .code { color: #7A9AB8; font-size: 0.8rem; width: 80px; }
+.price-table .name { text-align: left; }
+.price-table .price { text-align: right; font-weight: 600; color: #2E6AB3; }
+footer { background: #1E3A5F; color: rgba(255,255,255,0.7); text-align: center; padding: 2rem 0; }
+@media (min-width: 768px) { .hero h1 { font-size: 3rem; } }
