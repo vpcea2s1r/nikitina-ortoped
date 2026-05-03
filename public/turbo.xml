@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:yandex="http://news.yandex.ru" xmlns:turbo="http://turbo.yandex.ru">
+  <channel>
+    <title>Никитина М.Г. — Стоматолог-ортопед в Нижнем Новгороде</title>
+    <link>https://ortopednn.ru</link>
+    <description>Профессиональное протезирование зубов в Нижнем Новгороде. Металлокерамика, цирконий, виниры, съемные и бюгельные протезы.</description>
+    <language>ru</language>
+    <yandex:logo>https://ortopednn.ru/favicon.svg</yandex:logo>
+    <item turbo="true">
+      <link>https://ortopednn.ru/</link>
+      <title>Главная — Стоматолог-ортопед Никитина М.Г.</title>
+      <description>Профессиональное протезирование зубов любой сложности в Нижнем Новгороде.</description>
+      <author>Никитина Марина Георгиевна</author>
+    </item>
+    <item turbo="true">
+      <link>https://ortopednn.ru/services</link>
+      <title>Услуги — Протезирование зубов</title>
+      <description>Полный спектр услуг стоматолога-ортопеда: коронки, виниры, протезы.</description>
+      <author>Никитина Марина Георгиевна</author>
+    </item>
+  </channel>
+</rss>

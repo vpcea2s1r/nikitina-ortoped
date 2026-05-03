@@ -11,3 +11,8 @@ Disallow: /_static/
 Sitemap: https://ortopednn.ru/sitemap.xml
 
 Host: https://ortopednn.ru
+
+# Яндекс
+User-agent: Yandex
+Allow: /
+Crawl-delay: 1
