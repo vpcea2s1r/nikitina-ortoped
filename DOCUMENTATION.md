@@ -70,18 +70,28 @@
 ```
 ortopednn/
 ├── app/
-│   ├── layout.tsx          # Корневой layout с мета-тегами
-│   ├── page.tsx            # Главная страница
-│   ├── not-found.tsx       # Страница 404
-│   ├── globals.css         # Глобальные стили
+│   ├── components/          # Переиспользуемые компоненты
+│   │   ├── index.ts         # Экспорт компонентов
+│   │   ├── Nav.tsx          # Навигация
+│   │   ├── Footer.tsx       # Подвал
+│   │   ├── Card.tsx          # Карточка услуги
+│   │   └── Cta.tsx          # Блок CTA
+│   ├── types/
+│   │   └── index.ts         # TypeScript типы и константы
+│   ├── utils/
+│   │   └── slug.ts          # Утилиты для работы со slug
+│   ├── layout.tsx           # Корневой layout с мета-тегами
+│   ├── page.tsx             # Главная страница
+│   ├── not-found.tsx        # Страница 404
+│   ├── globals.css          # Глобальные стили (CSS Variables)
 │   ├── services/
-│   │   ├── page.tsx            # /services — список услуг
-│   │   ├── data.ts              # Данные всех услуг (JSON-база)
-│   │   ├── conditions.ts        # Тексты показаний/противопоказаний
-│   │   ├── variants.ts         # Тексты вариантов услуг
-│   │   ├── [slug]/page.tsx      # Динамическая страница услуги
-│   │   ├── condition/[slug]/    # Показания и противопоказания
-│   │   └── variant/[slug]/      # Варианты услуг
+│   │   ├── page.tsx         # /services — список услуг
+│   │   ├── data.ts           # Данные всех услуг (JSON-база)
+│   │   ├── conditions.ts     # Тексты показаний/противопоказаний
+│   │   ├── variants.ts      # Тексты вариантов услуг
+│   │   ├── [slug]/page.tsx  # Динамическая страница услуги
+│   │   ├── condition/[slug]/   # Показания и противопоказания
+│   │   └── variant/[slug]/     # Варианты услуг
 │   └── technologies/
 │       ├── data.ts          # Данные технологий
 │       └── [slug]/page.tsx  # Страницы технологий
@@ -90,10 +100,40 @@ ortopednn/
 │   ├── og-image.svg         # OpenGraph изображение
 │   ├── sitemap.xml          # Карта сайта
 │   ├── robots.txt           # Инструкции для роботов
-│   ├── turbo.xml            # Yandex Turbo RSS
 │   └── yandex_verify_*.html # Верификация Яндекса
+├── types/
+│   └── index.ts             # Типы (продублировано для совместимости)
 └── package.json             # Зависимости
 ```
+
+---
+
+## 3.1 Новая структура после рефакторинга
+
+Проект был реструктурирован для лучшей поддержки:
+
+### Компоненты (`app/components/`)
+Переиспользуемые UI-компоненты:
+- **Nav** — навигация с поддержкой дополнительных ссылок
+- **Footer** — подвал с авто-обновлением года
+- **Card** — универсальная карточка с поддержкой ссылок
+- **Cta** — блок призыва к действию с настраиваемым текстом
+
+### Типы (`app/types/`)
+Централизованные TypeScript типы:
+- Service, ServiceVariant, Condition, Technology, VariantDetail
+- PriceCategory, PriceItem
+- Константы CLINIC с контактными данными
+
+### Утилиты (`app/utils/`)
+- toSlug() — универсальная генерация slug
+- formatPrice() / parsePrice() — работа с ценами
+- canonicalUrl() — генерация канонических URL
+
+### CSS (globals.css)
+- Использование CSS Variables для консистентности
+- Упрощённая структура с понятными именами
+- Mobile-first адаптивность
 
 ---
 
@@ -401,7 +441,70 @@ A: Яндексу и Google требуется время (до 2-4 недель
 
 ---
 
-## 10. Лучшие практики
+## 10. Рефакторинг и улучшения
+
+### Что было сделано (версия 2.0)
+
+#### 1. Переиспользуемые компоненты
+- Созданы компоненты: Nav, Footer, Card, Cta
+- Централизованный экспорт через `components/index.ts`
+- Типизация Props через TypeScript
+
+#### 2. TypeScript типы
+- Все типы вынесены в `app/types/index.ts`
+- Константы CLINIC для легкого изменения контактов
+- Четкое разделение интерфейсов данных и UI
+
+#### 3. Утилиты
+- Создан `app/utils/slug.ts` с универсальными функциями:
+  - toSlug() — преобразование в slug
+  - formatPrice() / parsePrice() — работа с ценами
+  - canonicalUrl() — генерация URL
+  - generateSlugMap() — создание обратных маппингов
+
+#### 4. CSS Variables
+- Все цвета и spacing вынесены в CSS Variables
+- Легкое изменение темы через :root
+- Улучшенная читаемость кода
+
+#### 5. Удален мусор
+- Удалены страницы /docs (не относятся к функционалу)
+
+### Добавление нового компонента
+
+```typescript
+// app/components/MyComponent.tsx
+import { CLINIC } from '../types';
+
+interface MyComponentProps {
+  title: string;
+}
+
+export function MyComponent({ title }: MyComponentProps) {
+  return (
+    <div className="my-component">
+      <h2>{title}</h2>
+    </div>
+  );
+}
+
+// app/components/index.ts
+export { MyComponent } from './MyComponent';
+```
+
+### Добавление нового типа данных
+
+```typescript
+// app/types/index.ts
+export interface NewType {
+  id: string;
+  name: string;
+}
+```
+
+---
+
+## 11. Лучшие практики
 
 ### 10.1 Работа с кодом
 
