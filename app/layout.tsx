@@ -9,6 +9,11 @@ export const metadata = {
   publisher: 'Никитина Марина Георгиевна',
   robots: { index: true, follow: true },
   alternates: { canonical: 'https://ortopednn.ru' },
+  other: {
+    'geo.region': 'RU-NIZ',
+    'geo.placename': 'Нижний Новгород',
+    'ICBM': '56.294, 43.936',
+  },
   openGraph: {
     type: 'website',
     locale: 'ru_RU',

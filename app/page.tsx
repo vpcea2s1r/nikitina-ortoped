@@ -42,6 +42,33 @@ export default function Home() {
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "Organization",
+        "@id": "https://ortopednn.ru/#organization",
+        "name": "Никитина М.Г. Стоматолог-ортопед",
+        "url": "https://ortopednn.ru",
+        "logo": "https://ortopednn.ru/favicon.svg",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "ул. Октябрьской Революции, д. 43, оф. 316",
+          "addressLocality": "Нижний Новгород",
+          "addressRegion": "Нижегородская область",
+          "postalCode": "603000",
+          "addressCountry": "RU"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "56.294",
+          "longitude": "43.936"
+        },
+        "telephone": "+79202537317",
+        "priceRange": "3000-85000 ₽",
+        "areaServed": {
+          "@type": "City",
+          "name": "Нижний Новгород"
+        },
+        "serviceType": "Стоматологические услуги"
+      },
+      {
         "@type": "Physician",
         "@id": "https://ortopednn.ru/#physician",
         "name": "Никитина Марина Георгиевна",
