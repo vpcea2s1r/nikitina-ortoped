@@ -1,5 +1,6 @@
 import { SERVICES_DATA, getAllServices } from '../data';
 import { getConditionSlug } from '../conditions';
+import { getVariantSlug } from '../variants';
 import { notFound } from 'next/navigation';
 
 export async function generateStaticParams() {
@@ -96,7 +97,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               {service.variants.map((variant, i) => (
                 <div key={i} style={{ background: 'white', padding: '1.25rem', borderRadius: '0.75rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem' }}>
                   <div>
-                    <span style={{ fontWeight: 600, color: '#1E3A5F' }}>{variant.name}</span>
+                    <a href={`/services/variant/${getVariantSlug(variant.name)}`} style={{ fontWeight: 600, color: '#1E3A5F', textDecoration: 'none', borderBottom: '1px dashed #1E3A5F' }}>{variant.name}</a>
                     <p style={{ color: '#5A7A9A', fontSize: '0.9rem', marginTop: '0.25rem' }}>{variant.desc}</p>
                   </div>
                   <span style={{ fontWeight: 700, color: '#2E6AB3', fontSize: '1.1rem' }}>{variant.price}</span>

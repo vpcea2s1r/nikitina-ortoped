@@ -216,52 +216,52 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
-  <url>
+<url>
     <loc>https://ortopednn.ru/services/condition/protezirovanie-pri-zabolevaniyah-desen</loc>
     <lastmod>2026-05-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ortopednn.ru/services/condition/defekty-zubnogo-ryada</loc>
+    <loc>https://ortopednn.ru/services/variant/metallokeramika-standart</loc>
     <lastmod>2026-05-03</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ortopednn.ru/services/condition/alkergiya-na-metally</loc>
+    <loc>https://ortopednn.ru/services/variant/metallokeramika-plechevaya-massa</loc>
     <lastmod>2026-05-03</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ortopednn.ru/services/condition/bruksizm</loc>
+    <loc>https://ortopednn.ru/services/variant/metallokeramika-na-zolote</loc>
     <lastmod>2026-05-03</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ortopednn.ru/services/condition/parodontoz</loc>
+    <loc>https://ortopednn.ru/services/variant/cirkonij-standart</loc>
     <lastmod>2026-05-03</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ortopednn.ru/services/condition/polnoe-otsutstvie-zubov</loc>
+    <loc>https://ortopednn.ru/services/variant/viniry-emaks-standard</loc>
     <lastmod>2026-05-03</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ortopednn.ru/services/condition/chastichnoe-otsutstvie-zubov</loc>
+    <loc>https://ortopednn.ru/services/variant/acryfree-chastichnyj</loc>
     <lastmod>2026-05-03</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ortopednn.ru/services/condition/allergiya-na-akril</loc>
+    <loc>https://ortopednn.ru/services/variant/byugel-s-mikrozamkami</loc>
     <lastmod>2026-05-03</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
 </urlset>
