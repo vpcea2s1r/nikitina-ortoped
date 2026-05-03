@@ -1,0 +1,18 @@
+# Robots.txt для ortopednn.ru
+# https://ortopednn.ru/robots.txt
+
+User-agent: *
+Allow: /
+
+# Disallow для приватных страниц
+Disallow: /api/
+Disallow: /_next/
+
+# Карта сайта
+Sitemap: https://ortopednn.ru/sitemap.xml
+
+# Географические директивы
+Regional: Nizhny Novgorod
+
+# Контактная информация для поисковых систем
+Contact: mailto:info@ortopednn.ru
