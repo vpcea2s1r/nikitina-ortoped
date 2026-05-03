@@ -37,7 +37,7 @@ export default function PatientEducationHub() {
   return (
     <section className="max-w-3xl mx-auto p-6 mb-12 bg-white rounded-xl shadow-lg font-sans">
       <h2 className="text-3xl font-bold text-blue-700 mb-8 text-center">
-        Patient Education Hub
+        Образовательный центр для пациентов
       </h2>
 
       <nav className="flex justify-center gap-4 mb-6 flex-wrap">

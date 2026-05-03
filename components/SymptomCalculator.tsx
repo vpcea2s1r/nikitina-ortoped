@@ -137,7 +137,7 @@ export default function SymptomCalculator() {
                     <span className="ml-2 px-2 py-1 bg-red-100 text-red-700 rounded text-xs font-semibold">Срочно</span>
                   )}
                   {tooltip === name && (
-                    <div className="absolute top-full left-0 mt-1 w-64 p-3 bg-white border border-gray-300 rounded shadow-lg text-gray-800 z-20 text-sm">
+                    <div className="absolute left-0 bottom-full mb-2 w-64 p-3 bg-white border border-gray-300 rounded shadow-lg text-gray-800 z-20 text-sm">
                       {description}
                     </div>
                   )}
