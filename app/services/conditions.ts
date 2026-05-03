@@ -121,6 +121,7 @@ export function getConditionSlug(name: string): string {
     "Необходимость восстановления жевательной функции": "vosstanovlenie-zhevatelnoy-funkcii",
     "Эстетические дефекты зубов": "esteticheskie-defekty",
     "После лечения корневых каналов": "lechenie-kornevyh-kanalov",
+    "После лечения корневых каналов (покрытие ослабленного зуба)": "lechenie-kornevyh-kanalov",
     "Аллергия на металлы": "alkergiya-na-metally",
     "Бруксизм (скрежет зубами)": "bruksizm",
     "Патологическая стираемость зубов": "patologicheskaya-stirayaemost",
