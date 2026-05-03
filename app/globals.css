@@ -1,40 +1,78 @@
 /* Светло-голубая цветовая схема */
 * { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 16px; }
 body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #F0F8FF; color: #1E3A5F; line-height: 1.6; }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
-section { padding: 4rem 0; }
+section { padding: 3rem 0; }
 h1, h2, h3 { font-weight: 600; line-height: 1.2; }
 a { text-decoration: none; color: inherit; }
-.btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.75rem 1.5rem; border-radius: 9999px; font-weight: 600; cursor: pointer; transition: all 0.3s; border: none; }
+.btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.75rem 1.5rem; border-radius: 9999px; font-weight: 600; cursor: pointer; transition: all 0.3s; border: none; font-size: 1rem; }
 .btn-primary { background: linear-gradient(135deg, #4A90D9 0%, #2E6AB3 100%); color: white; box-shadow: 0 4px 15px rgba(74, 144, 217, 0.3); }
 .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(74, 144, 217, 0.4); }
 .btn-secondary { border: 2px solid #2E6AB3; color: #2E6AB3; background: transparent; }
 .btn-secondary:hover { background: #2E6AB3; color: white; }
-.card { background: white; border-radius: 1.5rem; padding: 1.5rem; box-shadow: 0 4px 20px rgba(30, 58, 95, 0.08); }
-.hero { min-height: 70vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(180deg, #E8F4FD 0%, #F0F8FF 100%); }
-.hero h1 { font-size: 2.5rem; color: #1E3A5F; margin-bottom: 1rem; }
-.hero p { font-size: 1.25rem; color: #4A90D9; font-weight: 500; margin-bottom: 2rem; }
-.hero .subtitle { color: #5A7A9A; max-width: 500px; margin: 0 auto 2rem; }
+.card { background: white; border-radius: 1.5rem; padding: 1.25rem; box-shadow: 0 4px 20px rgba(30, 58, 95, 0.08); }
+.hero { min-height: 60vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(180deg, #E8F4FD 0%, #F0F8FF 100%); padding: 2rem 1rem; }
+.hero h1 { font-size: 2rem; color: #1E3A5F; margin-bottom: 0.75rem; }
+.hero p { font-size: 1.1rem; color: #4A90D9; font-weight: 500; margin-bottom: 1.5rem; }
+.hero .subtitle { color: #5A7A9A; max-width: 100%; margin: 0 auto 1.5rem; font-size: 0.95rem; }
 .services { background: white; }
-.services h2 { text-align: center; margin-bottom: 3rem; font-size: 2rem; color: #1E3A5F; }
-.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto; }
-.services .card h3 { color: #2E6AB3; margin-bottom: 0.5rem; }
-.services .card p { color: #5A7A9A; }
+.services h2 { text-align: center; margin-bottom: 2rem; font-size: 1.5rem; color: #1E3A5F; }
+.services-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; max-width: 1000px; margin: 0 auto; padding: 0 0.5rem; }
+.services .card h3 { color: #2E6AB3; margin-bottom: 0.5rem; font-size: 1.1rem; }
+.services .card p { color: #5A7A9A; font-size: 0.9rem; }
 .contacts { background: linear-gradient(to bottom, white, #E8F4FD); text-align: center; }
-.contacts h2 { font-size: 2rem; color: #1E3A5F; margin-bottom: 1rem; }
-.contacts p { color: #5A7A9A; margin-bottom: 2rem; }
+.contacts h2 { font-size: 1.5rem; color: #1E3A5F; margin-bottom: 1rem; }
+.contacts p { color: #5A7A9A; margin-bottom: 1.5rem; }
 .price-section { background: white; }
-.price-section h2 { text-align: center; margin-bottom: 2rem; font-size: 2rem; color: #1E3A5F; }
-.price-category { margin-bottom: 2rem; }
-.price-category h3 { font-size: 1.125rem; color: #4A90D9; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #4A90D9; }
-.price-table { width: 100%; }
-.price-table tr { border-bottom: 1px solid #E0EBF5; }
-.price-table td { padding: 0.75rem 0; }
-.price-table .code { color: #7A9AB8; font-size: 0.8rem; width: 80px; }
-.price-table .name { text-align: left; }
-.price-table .price { text-align: right; font-weight: 600; color: #2E6AB3; }
-footer { background: #1E3A5F; color: rgba(255,255,255,0.7); text-align: center; padding: 2rem 0; }
-@media (min-width: 768px) { .hero h1 { font-size: 3rem; } }
+.price-section h2 { text-align: center; margin-bottom: 1.5rem; font-size: 1.5rem; color: #1E3A5F; }
+.price-category { margin-bottom: 1.5rem; }
+.price-category h3 { font-size: 1rem; color: #4A90D9; margin-bottom: 0.75rem; padding-bottom: 0.5rem; border-bottom: 2px solid #4A90D9; }
+.price-table { width: 100%; display: block; }
+.price-table tr { display: flex; flex-direction: column; border-bottom: 1px solid #E0EBF5; padding: 0.75rem 0; }
+.price-table td { padding: 0.25rem 0; }
+.price-table .code { color: #7A9AB8; font-size: 0.75rem; }
+.price-table .name { text-align: left; font-size: 0.9rem; }
+.price-table .price { text-align: left; font-weight: 600; color: #2E6AB3; font-size: 0.95rem; }
+footer { background: #1E3A5F; color: rgba(255,255,255,0.7); text-align: center; padding: 1.5rem 0; font-size: 0.85rem; }
+
+/* Mobile-first адаптивность */
+@media (min-width: 480px) {
+  .hero { min-height: 65vh; }
+  .hero h1 { font-size: 2.25rem; }
+  .hero p { font-size: 1.15rem; }
+  .price-table tr { flex-direction: row; justify-content: space-between; align-items: center; }
+  .price-table .code { width: 60px; }
+  .price-table .name { flex: 1; }
+  .price-table .price { width: 90px; text-align: right; }
+}
+
+@media (min-width: 640px) {
+  .services-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+  .price-table .code { width: 70px; }
+}
+
+@media (min-width: 768px) {
+  section { padding: 4rem 0; }
+  .hero h1 { font-size: 2.75rem; }
+  .hero p { font-size: 1.25rem; }
+  .hero .subtitle { max-width: 500px; font-size: 1rem; }
+  .services h2 { margin-bottom: 3rem; font-size: 2rem; }
+  .services-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+  .services .card { padding: 1.5rem; }
+  .contacts h2 { font-size: 2rem; margin-bottom: 1rem; }
+  .contacts p { margin-bottom: 2rem; }
+  .price-section h2 { margin-bottom: 2rem; font-size: 2rem; }
+  .price-category { margin-bottom: 2rem; }
+  .price-category h3 { font-size: 1.125rem; }
+  footer { padding: 2rem 0; }
+}
+
+@media (min-width: 1024px) {
+  .hero { min-height: 70vh; }
+  .hero h1 { font-size: 3rem; }
+  .services-grid { grid-template-columns: repeat(4, 1fr); }
+}
 
 .page-services .services-list { padding: 3rem 0; background: white; }
 .page-services .service-category { margin-bottom: 4rem; }
