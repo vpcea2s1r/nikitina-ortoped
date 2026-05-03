@@ -1,77 +1,51 @@
 /**
  * Корневой макет приложения
  * @layout
- * @description Основная структура HTML-страницы с метаданными для SEO
- * 
- * @param children - Дочерние компоненты страницы
+ * @description Основная структура с новыми шрифтами и SEO
  */
 import './globals.css';
 import type { Metadata } from 'next';
+import { Playfair_Display, Manrope } from 'next/font/google';
 
 /**
- * Метаданные для SEO и социальных сетей
+ * Шрифт для заголовков - Playfair Display
+ * Элегантный serif для профессионального вида
+ */
+const playfair = Playfair_Display({
+  subsets: ['latin', 'cyrillic'],
+  variable: '--font-playfair',
+  display: 'swap',
+});
+
+/**
+ * Шрифт для текста - Manrope
+ * Современный sans-serif для отличной читаемости
+ */
+const manrope = Manrope({
+  subsets: ['latin', 'cyrillic'],
+  variable: '--font-manrope',
+  display: 'swap',
+});
+
+/**
+ * Метаданные для SEO
  */
 export const metadata: Metadata = {
-  // Основные метаданные
-  title: 'Никитина М.Г. стоматолог-ортопед в Нижнем Новгороде',
-  description: 'Профессиональное протезирование зубов любой сложности. Восстановление эстетики и функций улыбки. Консультации и запись на приём.',
-  keywords: ['стоматолог', 'ортопед', 'протезирование зубов', 'Нижний Новгород', 'Никитина Марина'],
-  authors: [{ name: 'Никитина Марина Георгиевна' }],
-  creator: 'Никитина М.Г.',
-  
-  // Метаданные для поисковых систем
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
-  
-  // Open Graph для социальных сетей
+  title: 'Никитина М.Г. | Стоматолог-ортопед в Нижнем Новгороде',
+  description: 'Профессиональное протезирование зубов любой сложности. Восстановление эстетики и функций улыбки. Запишитесь на консультацию.',
+  keywords: ['стоматолог', 'ортопед', 'протезирование', 'Нижний Новгород', 'зубной протез'],
   openGraph: {
     type: 'website',
     locale: 'ru_RU',
     url: 'https://ortopednn.ru/',
     siteName: 'Стоматолог-ортопед Никитина М.Г.',
-    title: 'Никитина М.Г. стоматолог-ортопед в Нижнем Новгороде',
-    description: 'Профессиональное протезирование зубов — восстановление эстетики и функций улыбки.',
-    images: [
-      {
-        url: '/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Стоматолог-ортопед Никитина Марина Георгиевна',
-      },
-    ],
-  },
-  
-  // Twitter Card
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Никитина М.Г. стоматолог-ортопед',
+    title: 'Никитина М.Г. | Стоматолог-ортопед',
     description: 'Профессиональное протезирование зубов в Нижнем Новгороде',
-    images: ['/og-image.jpg'],
-  },
-  
-  // Иконки
-  icons: {
-    icon: '/favicon.ico',
-    apple: '/apple-touch-icon.png',
-  },
-  
-  // Географические метаданные
-  alternates: {
-    canonical: 'https://ortopednn.ru/',
   },
 };
 
 /**
- * Схема структурированных данных для организации
+ * JSON-LD схема для организации
  */
 const organizationSchema = {
   '@context': 'https://schema.org',
@@ -82,13 +56,11 @@ const organizationSchema = {
     '@type': 'PostalAddress',
     streetAddress: 'ул. Октябрьской Революции, д. 43, оф. 316',
     addressLocality: 'Нижний Новгород',
-    addressRegion: 'Нижегородская область',
     postalCode: '603000',
     addressCountry: 'RU',
   },
   telephone: '+79202537317',
   url: 'https://ortopednn.ru/',
-  priceRange: '$$',
 };
 
 export default function RootLayout({
@@ -97,15 +69,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ru">
+    <html lang="ru" className={`${playfair.variable} ${manrope.variable}`}>
       <head>
-        {/* Структурированные данные JSON-LD */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
       </head>
-      <body className="bg-white text-gray-800 font-sans antialiased">
+      <body className="font-sans bg-cream-100 text-warm-800 antialiased">
         {children}
       </body>
     </html>
