@@ -150,15 +150,15 @@ export default function Home() {
           <h2>Моя специализация</h2>
           <div className="services-grid">
             {[
-              { title: "Несъемные коронки", desc: "Металлокерамика, цирконий, E-MAX" },
-              { title: "Съемные протезы", desc: "Акрил, нейлон, AcryFree" },
-              { title: "Бюгельные протезы", desc: "На кламмерах и замках" },
-              { title: "Виниры", desc: "Эстетическая реставрация" },
+              { title: "Несъемные коронки", desc: "Металлокерамика, цирконий, E-MAX", link: "metallokeramika" },
+              { title: "Съемные протезы", desc: "Акрил, нейлон, AcryFree", link: "akril" },
+              { title: "Бюгельные протезы", desc: "На кламмерах и замках", link: "byugel" },
+              { title: "Виниры", desc: "Эстетическая реставрация", link: "viniry" },
             ].map((item) => (
-              <div key={item.title} className="card">
+              <a key={item.title} href={`/technologies/${item.link}`} className="card" style={{ textDecoration: 'none', display: 'block', transition: 'transform 0.2s' }}>
                 <h3>{item.title}</h3>
                 <p>{item.desc}</p>
-              </div>
+              </a>
             ))}
           </div>
         </div>

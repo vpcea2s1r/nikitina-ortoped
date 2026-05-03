@@ -46,6 +46,7 @@ footer { background: #1E3A5F; color: rgba(255,255,255,0.7); text-align: center; 
 .page-services .service-card p { color: #5A7A9A; font-size: 0.9rem; margin-bottom: 1rem; }
 .page-services .service-card .price { display: block; color: #1E3A5F; font-weight: 600; }
 .page-services .service-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(30, 58, 95, 0.15); }
+.services-grid a:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(30, 58, 95, 0.15); }
 .page-services .cta { background: linear-gradient(to bottom, #E8F4FD, #F0F8FF); text-align: center; padding: 3rem 0; }
 .page-services .cta h2 { color: #1E3A5F; margin-bottom: 0.5rem; }
 .page-services .cta p { color: #5A7A9A; margin-bottom: 1.5rem; }
