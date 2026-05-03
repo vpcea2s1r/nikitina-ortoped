@@ -79,8 +79,14 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
           <div className="card" style={{ marginBottom: '2rem' }}>
             <h2 style={{ color: '#2E6AB3', marginBottom: '1rem' }}>Противопоказания</h2>
-            <ul style={{ paddingLeft: '1.5rem', color: '#5A7A9A' }}>
-              {service.contraindications.map((item, i) => <li key={i} style={{ marginBottom: '0.5rem' }}>{item}</li>)}
+            <ul style={{ paddingLeft: '1.5rem' }}>
+              {service.contraindications.map((item, i) => (
+                <li key={i} style={{ marginBottom: '0.75rem' }}>
+                  <a href={`/services/condition/${getConditionSlug(item)}`} style={{ color: '#5A7A9A', textDecoration: 'none', borderBottom: '1px dashed #5A7A9A' }}>
+                    {item}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
