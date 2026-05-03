@@ -38,8 +38,64 @@ const PRICE_LIST = [
 ];
 
 export default function Home() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Physician",
+        "@id": "https://ortopednn.ru/#physician",
+        "name": "Никитина Марина Георгиевна",
+        "jobTitle": "Стоматолог-ортопед",
+        "image": "https://ortopednn.ru/",
+        "url": "https://ortopednn.ru",
+        "priceRange": "3000-85000 ₽",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "ул. Октябрьской Революции, д. 43, оф. 316",
+          "addressLocality": "Нижний Новгород",
+          "addressRegion": "Нижегородская область",
+          "postalAddress": "603000",
+          "addressCountry": "RU"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "56.294",
+          "longitude": "43.936"
+        },
+        "telephone": "+79202537317",
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        }
+      },
+      {
+        "@type": "Dentist",
+        "@id": "https://ortopednn.ru/#dentist",
+        "name": "Стоматолог-ортопед Никитина М.Г.",
+        "description": "Профессиональное протезирование зубов в Нижнем Новгороде. Металлокерамика, цирконий, виниры, съемные и бюгельные протезы.",
+        "url": "https://ortopednn.ru",
+        "priceRange": "3000-85000 ₽"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://ortopednn.ru/#breadcrumbs",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Главная",
+            "item": "https://ortopednn.ru/"
+          }
+        ]
+      }
+    ]
+  };
+
   return (
     <div style={{ minHeight: '100vh' }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       
       {/* NAV */}
       <nav style={{ 
@@ -58,10 +114,11 @@ export default function Home() {
           margin: '0 auto'
         }}>
           <span style={{ fontWeight: 600, color: '#1E3A5F' }}>Никитина М.Г.</span>
-          <div style={{ display: 'flex', gap: '1.5rem' }}>
-            <a href="#price" style={{ color: '#4A90D9' }}>Цены</a>
-            <a href="#contacts" style={{ color: '#4A90D9' }}>Контакты</a>
-          </div>
+<div style={{ display: 'flex', gap: '1.5rem' }}>
+              <a href="/services" style={{ color: '#4A90D9' }}>Услуги</a>
+              <a href="#price" style={{ color: '#4A90D9' }}>Цены</a>
+              <a href="#contacts" style={{ color: '#4A90D9' }}>Контакты</a>
+            </div>
         </div>
       </nav>
 
