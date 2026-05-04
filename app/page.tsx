@@ -4,7 +4,7 @@
 import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
 import { PriceList } from "@/components/PriceList";
-import { SPECIALIZATIONS, CLINIC_PHONE, CLINIC_ADDRESS } from "./data";
+import { SPECIALIZATIONS, CLINIC_PHONE, CLINIC_ADDRESS } from "@/lib/constants";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -90,7 +90,7 @@ const jsonLd = {
 
 export default function Home() {
   return (
-    <div style={{ minHeight: '100vh' }}>
+    <div id="main-content" style={{ minHeight: '100vh' }}>
       <script 
         type="application/ld+json" 
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} 

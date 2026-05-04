@@ -1,6 +1,6 @@
 "use client";
 
-import { PRICE_LIST } from "@/app/data";
+import { PRICE_LIST } from "@/lib/constants";
 
 export function PriceList() {
   return (

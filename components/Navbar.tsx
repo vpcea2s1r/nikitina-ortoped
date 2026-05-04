@@ -1,6 +1,6 @@
 "use client";
 
-import { NAV_LINKS } from "@/app/data";
+import { NAV_LINKS } from "@/lib/constants";
 import { usePathname } from "next/navigation";
 
 export function Navbar() {

@@ -1,6 +1,6 @@
 "use client";
 
-import { CLINIC_ADDRESS, CLINIC_PHONE } from "@/app/data";
+import { CLINIC_ADDRESS, CLINIC_PHONE } from "@/lib/constants";
 
 export function HeroSection() {
   const openMap = () => {
