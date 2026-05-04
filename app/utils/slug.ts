@@ -24,8 +24,8 @@ export function toSlug(str: string): string {
  * @example { "metallokeramika-standart": { name: "Металлокерамика стандарт" } }
  *          -> Map { "Металлокерамика стандарт" => "metallokeramika-standart" }
  */
-export function generateSlugMap<T extends Record<string, { name: string }>>(
-  data: Record<string, T>
+export function generateSlugMap(
+  data: Record<string, { name: string }>
 ): Map<string, string> {
   const map = new Map<string, string>();
   

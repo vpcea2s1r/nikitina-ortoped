@@ -13,39 +13,38 @@ const GOOGLE_ANALYTICS_ID = 'G-XXXXXXXXXX'; // Замените на ваш ID
 export default function Analytics() {
   useEffect(() => {
     // Яндекс Метрика
-    (function(m,e,t,r,i,k,a){
-      m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-      m[i].l=1*new Date();
-      for(let j=0;j<document.scripts.length;j++)
-        if(document.scripts[j].src===r)return;
-      k=e.createElement(t),a=e.getElementsByTagName(t)[0];
-      k.async=1;k.src=r;a.parentNode.insertBefore(k,a)
-    })(window,document,'script','https://mc.yandex.ru/metrika/watch.js','ym');
-    
-    window.ym = window.ym || function() {
-      (window.ym.a = window.ym.a || []).push(arguments);
+    const ymFunc = (window as any).ym || function() {
+      (window as any).ym.q = (window as any).ym.q || [];
+      (window as any).ym.q.push(arguments);
     };
-    window.ym(YANDEX_METRIKA_ID, 'init', {
-      clickmap:true,
-      trackLinks:true,
-      accurateTrackBounce:true,
-      webvisor:true
+    (window as any).ym = ymFunc;
+
+    const script = document.createElement('script');
+    script.src = 'https://mc.yandex.ru/metrika/watch.js';
+    script.async = true;
+    document.head.appendChild(script);
+
+    ymFunc(YANDEX_METRIKA_ID, 'init', {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true,
+      webvisor: true
     });
 
     // Google Analytics
-    const script1 = document.createElement('script');
-    script1.async = true;
-    script1.src = `https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}`;
-    document.head.appendChild(script1);
+    const gaScript1 = document.createElement('script');
+    gaScript1.async = true;
+    gaScript1.src = `https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}`;
+    document.head.appendChild(gaScript1);
 
-    const script2 = document.createElement('script');
-    script2.innerHTML = `
+    const gaScript2 = document.createElement('script');
+    gaScript2.innerHTML = `
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', '${GOOGLE_ANALYTICS_ID}');
     `;
-    document.head.appendChild(script2);
+    document.head.appendChild(gaScript2);
 
   }, []);
 
