@@ -13,8 +13,7 @@ const nextConfig: NextConfig = {
   // Static export для Cloudflare Pages / Vercel / Netlify
   output: 'export',
   
-  // Добавляем слеш в конец URL для корректной работы
-  trailingSlash: true,
+  // trailingSlash: true, // отключено для Cloudflare Pages
   
   // Отключаем оптимизацию изображений для static export
   images: {
