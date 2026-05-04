@@ -106,9 +106,9 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--color-text-main);
 }
 
-h1 { font-size: 2rem; }
-h2 { font-size: 1.5rem; }
-h3 { font-size: 1.125rem; }
+h1 { font-size: clamp(1.75rem, 4vw + 1rem, 3rem); }
+h2 { font-size: clamp(1.25rem, 2vw + 1rem, 2rem); }
+h3 { font-size: clamp(1rem, 1.5vw + 0.5rem, 1.25rem); }
 
 p {
   color: var(--color-text-secondary);
@@ -388,8 +388,8 @@ section {
 /* ==================== Mobile-First Responsive ==================== */
 @media (min-width: 480px) {
   .hero { min-height: 65vh; }
-  .hero h1 { font-size: 2.25rem; }
-  .hero p { font-size: 1.15rem; }
+  .hero h1 { font-size: clamp(2rem, 4vw + 1rem, 2.75rem); }
+  .hero p { font-size: clamp(1rem, 2vw + 0.5rem, 1.25rem); }
   
   .price-table tr {
     flex-direction: row;
@@ -409,18 +409,16 @@ section {
 @media (min-width: 768px) {
   section { padding: var(--spacing-3xl) 0; }
   
-  .hero h1 { font-size: 2.75rem; }
-  .hero p { font-size: 1.25rem; }
   .hero .subtitle { max-width: 500px; font-size: 1rem; }
   
-  .services h2 { margin-bottom: var(--spacing-2xl); font-size: 2rem; }
+  .services h2 { margin-bottom: var(--spacing-2xl); font-size: clamp(1.5rem, 2vw + 1rem, 2rem); }
   .services-grid { grid-template-columns: repeat(2, 1fr); gap: var(--spacing-xl); }
   .services .card { padding: var(--spacing-lg); }
   
-  .contacts h2 { font-size: 2rem; margin-bottom: var(--spacing-md); }
+  .contacts h2 { font-size: clamp(1.5rem, 2vw + 1rem, 2rem); margin-bottom: var(--spacing-md); }
   .contacts p { margin-bottom: var(--spacing-xl); }
   
-  .price-section h2 { margin-bottom: var(--spacing-xl); font-size: 2rem; }
+  .price-section h2 { margin-bottom: var(--spacing-xl); font-size: clamp(1.5rem, 2vw + 1rem, 2rem); }
   .price-category { margin-bottom: var(--spacing-xl); }
   .price-category h3 { font-size: 1.125rem; }
   
@@ -429,7 +427,6 @@ section {
 
 @media (min-width: 1024px) {
   .hero { min-height: 70vh; }
-  .hero h1 { font-size: 3rem; }
   .services-grid { grid-template-columns: repeat(4, 1fr); }
 }
 
