@@ -32,6 +32,7 @@ jobs:
         uses: cloudflare/pages-action@v1
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: f9f6e18138b25466c67363fc4c0e94c4
           projectName: nikitina-ortoped
           directory: out
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
