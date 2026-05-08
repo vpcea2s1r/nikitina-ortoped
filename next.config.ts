@@ -14,6 +14,7 @@ const nextConfig: NextConfig = {
   output: 'export',
   
   // trailingSlash: true, // отключено для Cloudflare Pages
+  trailingSlash: true,
   
   // Отключаем оптимизацию изображений для static export
   images: {
