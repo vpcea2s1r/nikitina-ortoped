@@ -492,3 +492,173 @@ a[href^="tel:"] {
   min-height: 44px;
   padding: 0.75rem 1.5rem;
 }
+
+/* ==================== Service Page ==================== */
+.service-page { min-height: 100vh; }
+
+.breadcrumbs {
+  padding: var(--spacing-sm) 0;
+  background: white;
+  border-bottom: 1px solid var(--color-border);
+}
+.breadcrumbs .container {
+  display: flex;
+  gap: var(--spacing-sm);
+  font-size: 0.875rem;
+  flex-wrap: wrap;
+}
+.breadcrumbs a { 
+  color: var(--color-primary);
+  text-decoration: none;
+}
+.breadcrumbs a:hover { 
+  text-decoration: underline; 
+}
+.breadcrumbs span { 
+  color: var(--color-text-muted); 
+}
+
+.service-content { padding: var(--spacing-3xl) 0; }
+
+.service-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-xl);
+  padding-bottom: var(--spacing-lg);
+  border-bottom: 1px solid var(--color-border);
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+}
+.service-header__title {
+  font-size: clamp(1.5rem, 3vw + 0.5rem, 2.5rem);
+  color: var(--color-text-main);
+}
+.service-header__price {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: white;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--radius-lg);
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.info-section {
+  margin-bottom: var(--spacing-xl);
+}
+.info-section h2 {
+  font-size: clamp(1.125rem, 2vw + 0.5rem, 1.5rem);
+  color: var(--color-primary-dark);
+  margin-bottom: var(--spacing-md);
+  font-weight: 600;
+}
+.info-section p {
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  margin-bottom: var(--spacing-sm);
+}
+.info-section ul {
+  padding-left: var(--spacing-lg);
+  margin-bottom: var(--spacing-sm);
+}
+.info-section li {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-xs);
+  line-height: 1.6;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
+.info-block {
+  background: white;
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
+}
+.info-block h3 {
+  font-size: 1.125rem;
+  color: var(--color-text-main);
+  margin-bottom: var(--spacing-md);
+  font-weight: 600;
+}
+.info-block ul {
+  list-style: none;
+  padding: 0;
+}
+.info-block li {
+  color: var(--color-text-secondary);
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid var(--color-border-light);
+}
+.info-block li:last-child {
+  border-bottom: none;
+}
+.info-block li strong {
+  color: var(--color-text-main);
+}
+
+.service-cta {
+  text-align: center;
+  padding: var(--spacing-2xl);
+  background: linear-gradient(135deg, var(--color-primary-light) 0%, white 100%);
+  border-radius: var(--radius-lg);
+  margin-top: var(--spacing-xl);
+  border: 1px solid var(--color-border);
+}
+.service-cta p {
+  color: var(--color-text-main);
+  font-size: 1.125rem;
+  margin-bottom: var(--spacing-md);
+}
+.cta-buttons {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  background: var(--color-primary);
+  color: white;
+  padding: var(--spacing-sm) var(--spacing-xl);
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all var(--transition-normal);
+  min-height: 44px;
+}
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-button);
+  text-decoration: none;
+  color: white;
+}
+.btn--secondary {
+  background: white;
+  color: var(--color-primary-dark);
+  border: 2px solid var(--color-primary-dark);
+}
+.btn--secondary:hover {
+  background: var(--color-primary-dark);
+  color: white;
+}
+
+@media (min-width: 640px) {
+  .info-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (min-width: 768px) {
+  .service-header { flex-direction: row; align-items: center; }
+  .service-header__price { text-align: center; }
+  .service-header__title { flex: 1; }
+  .info-section h2 { font-size: 1.5rem; }
+}

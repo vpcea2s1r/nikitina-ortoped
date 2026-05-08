@@ -1,131 +1,167 @@
-import { SERVICES_DATA, getAllServices } from '../data';
-import { getConditionSlug } from '../conditions';
-import { getVariantSlug } from '../variants';
-import { notFound } from 'next/navigation';
+import { Metadata } from 'next';
 
 export async function generateStaticParams() {
-  return getAllServices().map((service) => ({ slug: service.slug }));
+  return [{ slug: 'viniry-emaks' }];
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-  const service = SERVICES_DATA[slug];
-  if (!service) return {};
-  
+export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: `${service.name} | Услуги стоматолога-ортопеда в Нижнем Новгороде`,
-    description: service.shortDesc + ' ' + service.description.slice(0, 100),
-    alternates: { canonical: `https://ortopednn.ru/services/${slug}` },
+    title: 'Виниры E-MAX — Никитина М.Г.',
+    description: 'Виниры E-MAX в Нижнем Новгороде. Цена от 25000 рублей. Технология E-MAX, показания, этапы установки, уход.'
   };
 }
 
-export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-  const service = SERVICES_DATA[slug];
-  if (!service) notFound();
-
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "name": service.name,
-    "description": service.description,
-    "offers": {
-      "@type": "Offer",
-      "priceRange": service.price,
-      "priceCurrency": "RUB"
-    }
-  };
-
+export default function ViniryEMaksPage() {
   return (
-    <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <div style={{ minHeight: '100vh', background: '#F0F8FF' }}>
-        <nav style={{ background: 'white', padding: '1rem', boxShadow: '0 2px 10px rgba(30,58,95,0.08)', position: 'sticky', top: 0, zIndex: 100 }}>
-          <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <a href="/" style={{ fontWeight: 600, color: '#1E3A5F' }}>Никитина М.Г.</a>
-            <div style={{ display: 'flex', gap: '1.5rem' }}>
-              <a href="/services" style={{ color: '#4A90D9' }}>Услуги</a>
-              <a href="/#price" style={{ color: '#4A90D9' }}>Цены</a>
-              <a href="/#contacts" style={{ color: '#4A90D9' }}>Контакты</a>
+    <main className="min-h-screen">
+      <nav className="breadcrumbs" aria-label="Хлебные крошки">
+        <div className="container">
+          <a href="/">Главная</a>
+          <span>/</span>
+          <a href="/services">Услуги</a>
+          <span>/</span>
+          <span>Виниры E-MAX</span>
+        </div>
+      </nav>
+
+      <article className="service-content">
+        <div className="container">
+          <header className="service-header">
+            <h1 className="service-header__title">Виниры E-MAX</h1>
+            <div className="service-header__price">от 25 000 ₽</div>
+          </header>
+
+          <div className="service-body">
+            <section className="info-section">
+              <h2>Что такое виниры E-MAX простыми словами</h2>
+              <p>
+                Винир — это тонкая накладка толщиной с контактную линзу (0.3-0.7 мм), которая крепится на переднюю поверхность зуба. 
+                Представьте, что на ноготь надевают накладной ноготь — примерно так винир выглядит на зубе, только крепится он 
+                специальным стоматологическим цементом и служит много лет.
+              </p>
+              <p>
+                E-MAX — это марка керамики (IPS e.max) от компании Ivoclar из Лихтенштейна. Это не название процедуры, а 
+                название материала. Керамика E-MAX сделана из литийсиликатного стекла — она пропускает свет почти как настоящая 
+                эмаль зуба, поэтому выглядит абсолютно естественно.
+              </p>
+            </section>
+
+            <section className="info-section">
+              <h2>Как это работает</h2>
+              <p>
+                Стоматолог слегка обтачивает зуб (иногда можно обойтись без этого — так называемые люминиры). 
+                Затем с помощью сканера или слепочной массы снимает форму зуба. В лаборатории из керамического блока 
+                вытачивают винир, который идеально подходит именно вам. На второй визит винир примеряют и приклеивают.
+              </p>
+            </section>
+
+            <section className="info-section">
+              <h2>Кому подходит</h2>
+              <ul>
+                <li>Зубы изменили цвет после лечения каналов, приёма тетрациклина или флюороза</li>
+                <li>На передних зубах сколы, трещины или старые пломбы, которые нельзя просто заменить</li>
+                <li>Между зубами щели (диастемы), которые не исправить брекетами</li>
+                <li>Зубы немного неровные, но вы не хотите носить брекеты</li>
+                <li>Эмаль стёрлась или имеет некрасивую форму</li>
+              </ul>
+            </section>
+
+            <section className="info-section">
+              <h2>Кому НЕ подходит</h2>
+              <ul>
+                <li>Сильное искривление зубов — сначала нужно исправить прикус</li>
+                <li>Бруксизм (скрежещете зубами по ночам) — сломаете виниры</li>
+                <li>Кариес или воспаление дёсен — сначала лечим</li>
+                <li>Маленькие низкие зубы — на них не за что крепить винир</li>
+              </ul>
+            </section>
+
+            <div className="info-grid">
+              <section className="info-block info-block--pros">
+                <h3>Почему выбирают E-MAX</h3>
+                <ul>
+                  <li><strong>Идеальный внешний вид</strong> — керамика E-MAX полупрозрачная, как настоящая эмаль. Даже стоматолог не всегда отличит от своих зубов.</li>
+                  <li><strong>Прочность</strong> — 400 МПа прочности на изгиб. Для сравнения: металлокерамика — 800 МПа, но она непрозрачная и выглядит искусственно.</li>
+                  <li><strong>Минимальная обработка</strong> — обтачивается меньше зуба, чем под коронку. Иногда винир можно поставить вообще без обточки.</li>
+                  <li><strong>Не темнеет</strong> — кофе, чай, сигареты не окрашивают керамику. Цвет остаётся идеальным 10-15 лет.</li>
+                  <li><strong>Биосовместимость</strong> — никаких металлов, аллергии практически не бывает.</li>
+                  <li><strong>Быстро</strong> — 2-3 визита, результат через 2 недели.</li>
+                </ul>
+              </section>
+              
+              <section className="info-block info-block--cons">
+                <h3>Что учитывать</h3>
+                <ul>
+                  <li><strong>Цена</strong> — дороже композитных виниров (их делают прямо во рту пломбировочным материалом), но дешевле циркониевых коронок.</li>
+                  <li><strong>Необратимость</strong> — если обточили зуб, обратно уже не вернуть. Но если выбрали винир без обточки — всё обратимо.</li>
+                  <li><strong>Хрупкость при ударе</strong> — нельзя грызть орехи, открывать бутылки. При сильном ударе может сломаться.</li>
+                  <li><strong>Не ремонтируется</strong> — скололся? Только замена. Композитные виниры можно подшлифовать прямо во рту.</li>
+                  <li><strong>Срок службы</strong> — 10-20 лет, потом потребуется замена.</li>
+                </ul>
+              </section>
             </div>
+
+            <section className="info-section">
+              <h2>Как проходит установка</h2>
+              <p><strong>1. Консультация</strong> — Осмотр, обсуждение пожеланий, возможно компьютерное моделирование улыбки (Digital Smile Design). Вы видите результат ещё до начала лечения.</p>
+              <p><strong>2. Подготовка</strong> — Под местной анестезией стоматолог снимает тонкий слой эмали (0.3-0.7 мм). Это безболезненно.</p>
+              <p><strong>3. Снятие формы</strong> — Современные клиники используют внутриротовой сканер — не нужно мучиться с слепочной массой. Если сканера нет — используют силиконовую массу.</p>
+              <p><strong>4. Временные виниры</strong> — На обточенные зубы ставят пластиковые накладки на 1-2 недели, пока делают постоянные. Можно спокойно есть и улыбаться.</p>
+              <p><strong>5. Примерка</strong> — Готовый винир примеряют, проверяют цвет и форму. Если всё устраивает — фиксируют.</p>
+              <p><strong>6. Фиксация</strong> — Винир приклеивают на специальный цемент, который затвердевает под светом лампы. После этого можно сразу есть.</p>
+            </section>
+
+            <section className="info-section">
+              <h2>Виды E-MAX: какой выбрать</h2>
+              <p>
+                <strong>E-MAX Press</strong> — Винир прессуется из керамики под давлением и высокой температурой. Получается плотный, прочный винир. 
+                Подходит для большинства случаев. Можно сделать очень тонким (0.3-0.4 мм).
+              </p>
+              <p>
+                <strong>E-MAX CAD/CAM</strong> — Винир вытачивается из блока на станке с ЧПУ. Это быстрее и точнее. Результат идеально подходит по форме. 
+                Рекомендуется для сложных случаев.
+              </p>
+              <p>
+                <strong>E-MAX Multi</strong> — Многослойная керамика: основа непрозрачная, сверху полупрозрачная. Имитирует настоящий зуб с глубиной цвета. 
+                Для тех, кто хочет идеальную эстетику.
+              </p>
+              <p>
+                <strong>E-MAX Transluсent</strong> — Максимально прозрачный. Для молодых пациентов с хорошей эмалью, когда нужно лишь слегка изменить цвет.
+              </p>
+            </section>
+
+            <section className="info-section">
+              <h2>Как ухаживать</h2>
+              <ul>
+                <li>Чистите зубы два раза в день обычной щёткой и пастой</li>
+                <li>Используйте зубную нить или ирригатор — виниры гладкие, но между ними скапливается налёт</li>
+                <li>Не грызите твёрдые предметы: орехи, леденцы, карандаши, ногти</li>
+                <li>Не открывайте зубами бутылки, упаковки</li>
+                <li>Если скрипите зубами — закажите ночную капу (3000-5000 рублей)</li>
+                <li>При занятиях контактными видами спорта — носите спортивную капу</li>
+                <li>Раз в полгода — профессиональная чистка у стоматолога</li>
+              </ul>
+            </section>
+
+            <section className="info-section">
+              <h2>Срок службы и гарантия</h2>
+              <p>
+                Производитель (Ivoclar) заявляет срок службы 15-20 лет при правильном уходе. 
+                На практике виниры служат дольше, если нет травм и хорошая гигиена. 
+                Стоматолог обычно даёт гарантию 1-2 года на работу, дальше — замена при сколе (платно).
+              </p>
+            </section>
           </div>
-        </nav>
 
-        <div className="container" style={{ maxWidth: '900px', padding: '3rem 1rem' }}>
-          <a href="/services" style={{ color: '#4A90D9', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem' }}>
-            ← К списку услуг
-          </a>
-          
-          <span style={{ color: '#4A90D9', fontSize: '0.9rem' }}>{service.category}</span>
-          <h1 style={{ color: '#1E3A5F', fontSize: '2rem', margin: '0.5rem 0 1rem' }}>{service.name}</h1>
-          <p style={{ color: '#5A7A9A', fontSize: '1.25rem', marginBottom: '2rem' }}>{service.shortDesc}</p>
-
-          <div className="card" style={{ marginBottom: '2rem' }}>
-            <h2 style={{ color: '#2E6AB3', marginBottom: '1rem' }}>Описание</h2>
-            <p style={{ lineHeight: 1.8 }}>{service.description}</p>
-          </div>
-
-          <div className="card" style={{ marginBottom: '2rem' }}>
-            <h2 style={{ color: '#2E6AB3', marginBottom: '1rem' }}>Показания</h2>
-            <ul style={{ paddingLeft: '1.5rem' }}>
-              {service.indications.map((item, i) => (
-                <li key={i} style={{ marginBottom: '0.75rem' }}>
-                  <a href={`/services/condition/${getConditionSlug(item)}`} style={{ color: '#4A90D9', textDecoration: 'none', borderBottom: '1px dashed #4A90D9' }}>
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="card" style={{ marginBottom: '2rem' }}>
-            <h2 style={{ color: '#2E6AB3', marginBottom: '1rem' }}>Противопоказания</h2>
-            <ul style={{ paddingLeft: '1.5rem' }}>
-              {service.contraindications.map((item, i) => (
-                <li key={i} style={{ marginBottom: '0.75rem' }}>
-                  <a href={`/services/condition/${getConditionSlug(item)}`} style={{ color: '#5A7A9A', textDecoration: 'none', borderBottom: '1px dashed #5A7A9A' }}>
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="card" style={{ marginBottom: '2rem', background: 'linear-gradient(135deg, #E8F4FD 0%, #F0F8FF 100%)' }}>
-            <h2 style={{ color: '#2E6AB3', marginBottom: '1rem' }}>Варианты и цены</h2>
-            <div style={{ display: 'grid', gap: '1rem' }}>
-              {service.variants.map((variant, i) => (
-                <div key={i} style={{ background: 'white', padding: '1.25rem', borderRadius: '0.75rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem' }}>
-                  <div>
-                    <a href={`/services/variant/${getVariantSlug(variant.name)}`} style={{ fontWeight: 600, color: '#1E3A5F', textDecoration: 'none', borderBottom: '1px dashed #1E3A5F' }}>{variant.name}</a>
-                    <p style={{ color: '#5A7A9A', fontSize: '0.9rem', marginTop: '0.25rem' }}>{variant.desc}</p>
-                  </div>
-                  <span style={{ fontWeight: 700, color: '#2E6AB3', fontSize: '1.1rem' }}>{variant.price}</span>
-                </div>
-              ))}
+          <div className="service-cta">
+            <p>Хотите понять, подходят ли вам виниры E-MAX?</p>
+            <div className="cta-buttons">
+              <a href="tel:+79202537317" className="btn">Позвонить</a>
+              <a href="https://t.me/nikitina_ortoped" className="btn btn--secondary">Написать в Telegram</a>
             </div>
-          </div>
-
-          <div className="card" style={{ marginBottom: '2rem' }}>
-            <h2 style={{ color: '#2E6AB3', marginBottom: '1rem' }}>Уход за протезом</h2>
-            <ul style={{ paddingLeft: '1.5rem', color: '#1E3A5F' }}>
-              {service.care.map((item, i) => <li key={i} style={{ marginBottom: '0.5rem' }}>{item}</li>)}
-            </ul>
-          </div>
-
-          <div className="cta-box" style={{ background: 'linear-gradient(135deg, #4A90D9 0%, #2E6AB3 100%)', borderRadius: '1.5rem', padding: '2.5rem', textAlign: 'center', color: 'white' }}>
-            <h2 style={{ marginBottom: '0.5rem' }}>Нужна консультация?</h2>
-            <p style={{ opacity: 0.9, marginBottom: '1.5rem' }}>Позвоните — врач ответит на ваши вопросы</p>
-            <a href="tel:+79202537317" className="btn btn-primary" style={{ background: 'white', color: '#2E6AB3' }}>
-              Позвонить: 7 920 253 73 17
-            </a>
           </div>
         </div>
-
-        <footer>
-          <p>© {new Date().getFullYear()} Никитина Марина Георгиевна</p>
-        </footer>
-      </div>
-    </>
+      </article>
+    </main>
   );
 }
