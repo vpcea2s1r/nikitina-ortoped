@@ -1,8 +1,8 @@
-name: Deploy to Cloudflare Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main, develop]
+    branches: [main]
   workflow_dispatch:
 
 jobs:
@@ -10,7 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      deployments: write
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - name: Checkout
@@ -28,11 +33,11 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Deploy to Cloudflare Pages
-        uses: cloudflare/pages-action@v1
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: f9f6e18138b25466c67363fc4c0e94c4
-          projectName: nikitina-ortoped
-          directory: out
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          path: ./out
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
