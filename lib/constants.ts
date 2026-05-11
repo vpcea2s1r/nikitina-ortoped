@@ -198,8 +198,8 @@ export const PRICE_LIST = [
     items: [
       { code: "О.2.1.1", name: "Частичный съемный протез", price: "24 400 ₽", link: "/services/chastichny-sjemny-protez" },
       { code: "О.2.1.2", name: "Полный съемный протез", price: "27 360 ₽", link: "/services/polny-sjemny-protez" },
-      { code: "О.2.2.1", name: "Протез «AcryFree»", price: "41 400 ₽", link: "/services/acryfree" },
-      { code: "О.2.2.4", name: "Нейлоновый протез", price: "41 400 ₽", link: "/services/nejlonovyj-protez" },
+      { code: "О.2.2.1", name: "Протез «AcryFree» (термопластический)", price: "41 400 ₽", link: "/services/acryfree" },
+      { code: "О.2.2.2", name: "Нейлоновый протез съёмный", price: "41 400 ₽", link: "/services/nejlonovyj-protez" },
     ]
   },
   {

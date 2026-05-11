@@ -36,6 +36,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# opencode skills junction (points to skills/addy-skills/skills/)
+.opencode/skills
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

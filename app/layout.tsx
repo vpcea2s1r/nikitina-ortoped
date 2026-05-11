@@ -36,7 +36,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="theme-color" content="#4A90D9" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="yandex-verification" content="yandex_verification_code" />
-        <meta name="yandex" content="noyandex" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/favicon.svg" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />

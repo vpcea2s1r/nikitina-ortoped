@@ -1,15 +1,24 @@
+import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { SERVICES_CONTENT } from '../content';
 
 export async function generateStaticParams() {
-  return Object.keys(SERVICES_CONTENT).map((slug) => ({ slug }));
+  return [{ slug: 'immediat-protez' }];
 }
 
-export default function ServicePage({ params }: { params: { slug: string } }) {
-  const data = SERVICES_CONTENT[params.slug];
-  if (!data) notFound();
+export async function generateMetadata(): Promise<Metadata> {
+  const data = SERVICES_CONTENT['immediat-protez'];
+  if (!data) return {};
+  return {
+    title: `${data.name} — ${data.shortDesc}`,
+    description: data.description.slice(0, 160),
+    alternates: { canonical: 'https://ortopednn.ru/services/immediat-protez' },
+  };
+}
 
-  const slug = params.slug;
+export default function ImmediatProtezPage() {
+  const data = SERVICES_CONTENT['immediat-protez'];
+  if (!data) notFound();
 
   return (
     <main className="min-h-screen">
@@ -66,7 +75,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
               </section>
 
               <section className="info-block info-block--cons">
-                <h3>Недостатки</h3>
+                <h3>Что учитывать</h3>
                 <ul>
                   {data.disadvantages.map((item, i) => (
                     <li key={i}>{item}</li>
@@ -99,7 +108,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
             </section>
 
             <section className="info-section">
-              <h2>Срок службы и гарантия</h2>
+              <h2>Срок службы и цена</h2>
               <p>{data.priceNote}</p>
             </section>
           </div>
